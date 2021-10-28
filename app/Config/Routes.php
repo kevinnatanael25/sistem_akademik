@@ -32,6 +32,9 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/mahasiswa', 'Mahasiswa::index', ['filter' => 'login']);
+$routes->get('/matakuliah', 'Matakuliah::index', ['filter' => 'login']);
+
 
 $routes->get('api/v1/biodata', 'Ws/V1/Biodata::read',['filter' => 'login']);
 
