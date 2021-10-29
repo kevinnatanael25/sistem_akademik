@@ -11,10 +11,10 @@ class Mahasiswa extends ResourceController
     protected $format = "json";
     public function index()
     {
-        $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), "nama_status_mahasiswa = 'Aktif'", '');
-        $result['mahasiswa'] = $item->data;
+        // $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), "nama_status_mahasiswa = 'Aktif'", '');
+        // $result['mahasiswa'] = $item->data;
         $data['sidebar'] = view("layout/sidebar");
-        $data['content'] = view("mahasiswa", $result);
+        $data['content'] = view("mahasiswa");
         return view('layout/layout', $data);
     }
 
