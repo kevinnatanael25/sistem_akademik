@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class TahunAkademikModel extends Model
+class UserModel extends Model
 {
     protected $DBGroup              = 'default';
-    protected $table                = 'tahun_akademik';
+    protected $table                = 'user';
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id', 'nama_tahun_akademik', 'nama_semester', 'semester', 'tanggal_mulai','tanggal_selesai'];
+    protected $allowedFields        = ['id', 'username', 'password', 'email'];
 
     // Dates
     protected $useTimestamps        = false;

@@ -8,6 +8,7 @@ class Auth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
+        
         $curl = curl_init();
 
         curl_setopt_array($curl, [

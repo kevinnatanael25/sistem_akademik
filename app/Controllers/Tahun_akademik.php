@@ -17,10 +17,10 @@ class Tahun_akademik extends ResourceController
     }
     public function index()
     {
-        $item = $this->rest->callRest("GetSemester", $this->session->get('token'), "", '');
-        $result['tahun_akademik'] = $item->data;
+        // $item = $this->rest->callRest("GetSemester", $this->session->get('token'), "", '');
+        // $result['tahun_akademik'] = $item->data;
         $data['sidebar'] = view("layout/sidebar");
-        $data['content'] = view("tahun_akademik", $result);
+        $data['content'] = view("tahun_akademik");
         return view('layout/layout', $data);
     }
 
