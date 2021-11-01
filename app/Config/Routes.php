@@ -36,7 +36,7 @@ $routes->get('/mahasiswa', 'Mahasiswa::index', ['filter' => 'login']);
 $routes->get('/matakuliah', 'Matakuliah::index', ['filter' => 'login']);
 
 
-$routes->get('api/v1/biodata', 'Ws/V1/Biodata::read',['filter' => 'login']);
+$routes->get('api/v1/biodata', 'Ws/V1/Biodata::read/$1',['filter' => 'login']);
 
 
 
