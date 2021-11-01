@@ -4,18 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-
-class ProdiModel extends Model
+class ProgramStudiModel extends Model
 {
     protected $DBGroup              = 'default';
-    protected $table                = 'program_studi';
+    protected $table                = 'programstudis';
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id','kode_program_studi','nama_program_studi','status','id_jenjang_pendidikan'];
+    protected $allowedFields        = [];
 
     // Dates
     protected $useTimestamps        = false;
