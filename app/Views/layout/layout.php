@@ -1,51 +1,111 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" ng-app="apps">
-  <head>
-  	<title>Sidebar 09</title>
+
+<head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Regal Admin</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendors/feather/feather.css">
+    <link rel="stylesheet" href="/assets/vendors/base/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="/assets/vendors/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/vendors/jquery-bar-rating/fontawesome-stars-o.css">
+    <link rel="stylesheet" href="/assets/vendors/jquery-bar-rating/fontawesome-stars.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/assets/images/favicon.png" />
+</head>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-	        </button>
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo" href="index.html"><img src="/assets/images/logo.svg"
+                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../../assets/images/logo-mini.svg"
+                        alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="icon-menu"></span>
+                </button>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item dropdown d-flex mr-4 ">
+                        <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
+                            id="notificationDropdown" href="#" data-toggle="dropdown">
+                            <i class="icon-cog"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                            aria-labelledby="notificationDropdown">
+                            <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
+                            <a class="dropdown-item preview-item">
+                                <i class="icon-head"></i> Profile
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <i class="icon-inbox"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                    <span class="icon-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_sidebar.html -->
+            <?=$sidebar;?>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <?=$content?>
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                            bootstrapdash.com 2020</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
+                                href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard
+                                templates</a>
+                            from Bootstrapdash.com</span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
         </div>
-	  		<div class="img bg-wrap text-center py-4" style="background-image: url(assets/images/bg_1.jpg);">
-	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url(assets/images/logo.jpg);"></div>
-	  				<h3>aku padamu baby muachhh :* </h3>
-	  			</div>
-	  		</div>
-        <?= $sidebar;?>
-        
-    	</nav>
-      <div id="content" class="p-4 p-md-5 pt-5">
-        
-        <?= $content;?>
-      </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
 
-        <!-- Page Content  -->
-     
-		</div>
+    <!-- base:js -->
+    <script src="/assets/js/jquery/jquery.min.js"></script>
+    <script src="/assets/vendors/base/vendor.bundle.base.js"></script>
+    <script src="/assets/js/off-canvas.js"></script>
+    <script src="/assets/js/hoverable-collapse.js"></script>
+    <script src="/assets/js/template.js"></script>
+    <script src="/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="/assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+    <script src="/assets/js/dashboard.js"></script>
+    <script src="/assets/js/angular/angular.min.js"></script>
+    <script src="/apps/apps.js"></script>
+    <script src="/apps/controller/admin.controllers.js"></script>
+    <script src="/apps/services/admin.services.js"></script>
+    <script src="/apps/services/helperServices.js"></script>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/angular/angular.min.js"></script>
 
-    <script src="apps/apps.js"></script>
-    <script src="apps/controller/admin.controllers.js"></script>
-    <script src="apps/services/admin.services.js"></script>
-    <script src="apps/services/helperServices.js"></script>
+</body>
 
-  </body>
 </html>

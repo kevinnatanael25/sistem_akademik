@@ -21,6 +21,7 @@ class Home extends ResourceController
         $data['sidebar'] = view("layout/sidebar");
         $data['content'] = view("home");
         return view('layout/layout', $data);
+        // return view('layout/layout', $data);
         // return view("layout/layout1");
     }
 }
