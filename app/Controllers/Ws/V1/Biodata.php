@@ -23,9 +23,9 @@ class Biodata extends ResourceController
         
 
     }
-    public function read()
+    public function read($id_mahasiswa = "")
     {
-        $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), '', '');
+        $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), $id_mahasiswa, '');
         return $this->respond($item);
     }
 }
