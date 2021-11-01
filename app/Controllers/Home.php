@@ -20,7 +20,8 @@ class Home extends ResourceController
         $result['biodata'] = $item->data;
         $data['sidebar'] = view("layout/sidebar");
         $data['content'] = view("home");
-        return view('layout/layout', $data);
+        return view('home');
+        // return view('layout/layout', $data);
         // return view("layout/layout1");
     }
 }
