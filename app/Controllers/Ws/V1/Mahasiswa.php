@@ -18,8 +18,8 @@ class Mahasiswa extends ResourceController
   
     public function read()
     {
-        $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), $this->request->getGet('param').'='.$this->request->getGet('value'), '');
-
+        //$item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), $this->request->getGet('param').'='.$this->request->getGet('value'), '');
+        $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), '','', '');
         return $this->respond($item);
     }
 }
