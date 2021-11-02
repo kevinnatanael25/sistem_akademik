@@ -1,24 +1,25 @@
-<div ng-controller="mahasiswaController">
+<div ng-controller="tahunAkademikController">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">List Mahasiswa</h3>
+            <h3 class="card-title">List Tahun Akademik</h3>
             <div class="card-tools">
                 <!-- Button trigger modal -->
-                <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modelId">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modelId">
                   Tambah
-                </button> -->
-                
+                </button>
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-sm table-hover">
+            <table class="table table-sm table-bordered">
                 <thead>
                     <tr>
-                        <th>Nama Mahasiswa</th>
-                        <th>NPM</th>
-                        <th>Agama</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Status</th>
+                        <th>No</th>
+                        <th>Tahun Ajaran</th>
+                        <th>Semester</th>
+                        <th>Tanggal Mulai</th>
+                        <th>Tanggal Selesai</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
