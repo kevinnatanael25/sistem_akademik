@@ -42,7 +42,7 @@ class MahasiswaSkripsi extends ResourceController
                 if ($ma->id_mahasiswa == $value->id_mahasiswa) {
                     $user = [
                         'username' => $ma->nim,
-                        'password' => base64_encode($this->encrypter->encrypt("stimik1011")),
+                        'password' => md5('stimik1011'),
                         'email' => $value->email == null ? $ma->nim . "@stimiksepnop.ac.id" : $ma->nim,
                     ];
                     $this->user->insert($user);
