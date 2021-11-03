@@ -24,7 +24,7 @@ class BiodataMahasiswaModel extends Model
                                         'id_pendidikan_ibu','nama_pendidikan_ibu', 'id_pekerjaan_ibu','nama_pekerjaan_ibu',
                                         'id_penghasilan_ibu','nama_penghasilan_ibu', 'nama_wali','tanggal_lahir_wali',
                                         'id_pendidikan_wali','nama_pendidikan_wali', 'id_pekerjaan_wali','nama_pekerjaan_wali',
-                                        'id_penghasilan_wali','nama_penghasilan_wali'];
+                                        'id_penghasilan_wali','nama_penghasilan_wali', 'users_id'];
 
     // Dates
     protected $useTimestamps        = false;
