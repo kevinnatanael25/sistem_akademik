@@ -17,7 +17,7 @@ class Prodi extends ResourceController
     }
     public function index()
     {
-          $data['sidebar'] = view("layout/sidebar");
+        $data['sidebar'] = view("layout/sidebar");
         $data['content'] = view("program_studi");
         return view('layout/layout', $data);
     }
