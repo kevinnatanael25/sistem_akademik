@@ -23,7 +23,7 @@ class Encryption extends BaseConfig
      *
      * @var string
      */
-    public $key = 'simak';
+    public $key = 'aBigsecret_ofAtleast32Characters';
 
     /**
      * --------------------------------------------------------------------------

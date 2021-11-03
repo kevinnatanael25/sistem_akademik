@@ -44,71 +44,44 @@ class Auth extends ResourceController
 
     public function login()
     {
-
-        $session = session();
-        $data = (array) $this->request->getPost();
+        $data = (array) $this->request->getJSON();
         $result = $this->model->login($data);
         if ($result) {
-            $data = $this->request->getJSON();
-            $userdata = $this->model->where('username', $data->username)->first();
+            $key = keyJWT;
 
-            if (!empty($userdata)) {
+            $iat = time(); // current timestamp value
+            $nbf = $iat + 10;
+            $exp = $iat + 3600;
 
-                if (password_verify($this->request->getVar("password"), $userdata['password'])) {
+            $payload = array(
+                "iss" => "The_claim",
+                "aud" => "The_Aud",
+                "iat" => $iat, // issued at
+                "nbf" => $nbf, //not before in seconds
+                "exp" => $exp, // expire time in seconds
+                "data" => $result,
+            );
 
-                    $key = $this->getKey();
+            $token = JWT::encode($payload, $key);
 
-                    $iat = time(); // current timestamp value
-                    $nbf = $iat + 10;
-                    $exp = $iat + 3600;
+            $response = [
+                'status' => 200,
+                'error' => false,
+                'messages' => 'User logged In successfully',
+                'data' => [
+                    'token' => $token,
+                ],
+            ];
+            return $this->respondCreated($response);
 
-                    $payload = array(
-                        "iss" => "The_claim",
-                        "aud" => "The_Aud",
-                        "iat" => $iat, // issued at
-                        "nbf" => $nbf, //not before in seconds
-                        "exp" => $exp, // expire time in seconds
-                        "data" => $userdata,
-                    );
-
-                    $token = JWT::encode($payload, $key);
-
-                    $response = [
-                        'status' => 200,
-                        'error' => false,
-                        'messages' => 'User logged In successfully',
-                        'data' => [
-                            'token' => $token,
-                        ],
-                    ];
-                    return $this->respondCreated($response);
-                } else {
-
-                    $response = [
-                        'status' => 500,
-                        'error' => true,
-                        'messages' => 'Incorrect details',
-                        'data' => [],
-                    ];
-                    return $this->respondCreated($response);
-                }
-            } else {
-                $response = [
-                    'status' => 500,
-                    'error' => true,
-                    'messages' => 'User not found',
-                    'data' => [],
-                ];
-                return $this->respondCreated($response);
-            }
         } else {
             $response = [
-                    'status' => 500,
-                    'error' => true,
-                    'messages' => 'User not found',
-                    'data' => [],
-                ];
-                return $this->respondCreated($response);
+                'status' => 500,
+                'error' => true,
+                'messages' => 'User not found',
+                'data' => [],
+            ];
+            return $this->respondCreated($response);
         }
     }
 
