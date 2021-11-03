@@ -18,7 +18,7 @@ class Home extends ResourceController
     {
         $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), '', '');
         $result['biodata'] = $item->data;
-        $data['sidebar'] = view("layout/sidebar");
+        $data['sidebar'] = view("layout/layout");
         $data['content'] = view("home");
         return view('layout/layout', $data);
         // return view('layout/layout', $data);

@@ -15,7 +15,7 @@ class ProdiModel extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id','kode_program_studi','nama_program_studi','status','id_jenjang_pendidikan'];
+    protected $allowedFields        = ['id','perguruan_tinggi_id','id_prodi','kode_program_studi','nama_program_studi','status','id_jenjang_pendidikan','nama_jenjang_pendidikan'];
 
     // Dates
     protected $useTimestamps        = false;

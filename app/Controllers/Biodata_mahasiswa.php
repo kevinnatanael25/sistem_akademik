@@ -5,7 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\RESTful\ResourceController;
 use App\Libraries\Rest;
 
-class BiodataMahasiswa extends ResourceController
+class Biodata_mahasiswa extends ResourceController
 {
     protected $modelName = "App\Models\BiodataMahasiswaModel";
     protected $format = "json";
