@@ -111,7 +111,11 @@ class UserModel extends Model
                     LEFT JOIN `role` ON `user_role`.`role_id` = `role`.`id`
                     LEFT JOIN `biodata_mahasiswa` ON `biodata_mahasiswa`.`users_id` = `user`.`id` WHERE username='$username'")->getRowArray();
                     return $item;
-                } else {
+                }else if($result['role'] == 'Mahasiswa'){
+                    
+
+                } 
+                else {
                     $result['nama'] = "Administrator";
                     return $result;
                 }

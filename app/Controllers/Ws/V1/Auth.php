@@ -69,6 +69,7 @@ class Auth extends ResourceController
                 'error' => false,
                 'messages' => 'User logged In successfully',
                 'data' => [
+                    "id_mahasiswa" => $result["id_mahasiswa"],
                     'token' => $token,
                 ],
             ];

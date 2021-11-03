@@ -7,7 +7,7 @@ use CodeIgniter\RESTful\ResourceController;
 
 class Biodata extends ResourceController
 {
-    protected $session;
+
     protected $rest;
 
     public function __construct()
@@ -15,14 +15,13 @@ class Biodata extends ResourceController
         $this->session = session();
         $this->rest = new Rest();
     }
-    // public function index()
-    // {
-    //     $token = $this->session->get('token');
-    // }
+  
     public function read()
     {
-        $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), $this->request->getGet('param').'='.$this->request->getGet('value'), '');
-
+        $filter = $this->request->getGet() ? $this->request->getGet('param')."=".$this->request->getGet('value') : "";
+        $item = $this->rest->callRest("GetDataLengkapMahasiswaProdi", $this->session->get('token'), $filter, '');
+        //$item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), "id_periode <='$tahun' AND nama_status_mahasiswa = 'Aktif'", '');
+        //$item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), '','', '');
         return $this->respond($item);
     }
 }
