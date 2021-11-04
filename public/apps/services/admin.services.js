@@ -83,7 +83,7 @@ function mahasiswaServices($http, $q, helperServices) {
         var def = $q.defer();
         $http({
             method: 'get',
-            url: controller + "/read",
+            url: helperServices.url + "api/v1/biodata",
             headers: {'Content-Type': 'application/json'}
         }).then((res)=>{
             service.data = res.data;

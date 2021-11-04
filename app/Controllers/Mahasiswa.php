@@ -7,7 +7,7 @@ use App\Libraries\Rest;
 
 class Mahasiswa extends ResourceController
 {
-    protected $modelName = "App\Models\ProdiModel";
+    protected $modelName = "App\Models\MahasiswaModel";
     protected $format = "json";
     public function index()
     {

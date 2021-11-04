@@ -4,19 +4,21 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-
-class ProdiModel extends Model
+class MahasiswaModel extends Model
 {
     protected $DBGroup              = 'default';
-    protected $table                = 'program_studi';
+    protected $table                = 'mahasiswa';
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id','perguruan_tinggi_id','id_prodi','kode_program_studi','nama_program_studi','status','id_jenjang_pendidikan','nama_jenjang_pendidikan'];
-    
+    protected $allowedFields        = ['id','nama_mahasiswa','jenis_kelamin','tanggal_lahir', 'id_perguruan_tinggi','id_mahasiswa',
+                                        'id_agama','nama_agama','id_prodi','nama_program_studi','nama_status_mahasiswa',
+                                        'nim','id_periode','nama_periode_masuk','id_registrasi_mahasiswa','biodata_mahasiswa_id',
+                                        'program_studi_id'];
+
     // Dates
     protected $useTimestamps        = false;
     protected $dateFormat           = 'datetime';

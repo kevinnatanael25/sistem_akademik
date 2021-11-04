@@ -14,20 +14,21 @@
             <table class="table table-sm table-hover">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>Nama Mahasiswa</th>
                         <th>NPM</th>
                         <th>Agama</th>
                         <th>Jenis Kelamin</th>
-                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat = "item in datas">
+                    <tr ng-repeat = "item in datas.data">
                         <th>{{$index+1}}</th>
-                        <th>{{item.nama_tahun_akademik}}</th>
-                        <th>{{item.semester == "1" ? "Ganjil" : item.semester == "2" ? "Genap" : "Pendek"}}</th>
-                        <th>{{item.tanggal_mulai}}</th>
-                        <th>{{item.tanggal_selesai}}</th>
+                        <th>{{item.nama_mahasiswa}}</th>
+                        <th>{{item.nim}}</th>
+                        <th>{{item.nama_agama}}</th>
+                        <th>{{item.jenis_kelamin}}</th>
                         <th>
                             <button type="button" class="btn btn-warning btn-sm" ng-click="edit(item)"><i class="fa fa-edit"></i></button>
                             <button type="button" class="btn btn-danger btn-sm" ng-click="delete(item)"><i class="fa fa-trash"></i></button>
