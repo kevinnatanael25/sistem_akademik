@@ -4,21 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-
-class PerguruanTinggiModel extends Model
+class MahasiswaModel extends Model
 {
     protected $DBGroup              = 'default';
-    protected $table                = 'perguruan_tinggi';
+    protected $table                = 'mahasiswa';
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id','id_perguruan_tinggi','kode_perguruan_tinggi', 'nama_perguruan_tinggi','telepon','faximile','email',
-                                        'website','jalan', 'dusun', 'rt_rw', 'kelurahan', 'kode_pos', 'bank', 'unit_cabang',
-                                        'nomor_rekening', 'mbs', 'luas_tanah_milik','luas_tanah_bukan_milik','sk_pendirian',
-                                        'tanggal_sk_pendirian', 'status_perguruan_tinggi', 'sk_izin_operasional', 'tanggal_izin_operasional'];
+    protected $allowedFields        = ['id','nama_mahasiswa','jenis_kelamin','tanggal_lahir', 'id_perguruan_tinggi','id_mahasiswa',
+                                        'id_agama','nama_agama','id_prodi','nama_program_studi','nama_status_mahasiswa',
+                                        'nim','id_periode','nama_periode_masuk','id_registrasi_mahasiswa','biodata_mahasiswa_id',
+                                        'program_studi_id'];
 
     // Dates
     protected $useTimestamps        = false;
