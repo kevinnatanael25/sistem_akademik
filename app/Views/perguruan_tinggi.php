@@ -1,7 +1,7 @@
-<div ng-controller="tahunAkademikController">
+<div ng-controller="perguruanTinggiController">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">List Tahun Akademik</h3>
+            <h3 class="card-title">Perguruan Tinggi</h3>
             <div class="card-tools">
                 <!-- Button trigger modal -->
                 <!-- Button trigger modal -->
@@ -14,21 +14,60 @@
             <table class="table table-sm table-bordered">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Tahun Ajaran</th>
-                        <th>Semester</th>
-                        <th>Tanggal Mulai</th>
-                        <th>Tanggal Selesai</th>
+                        <th>Kode Perguruan Tinggi</th>
+                        <th>Nama Perguruan Tinggi</th>
+                        <th>Telepon</th>
+                        <th>Faximile</th>
+                        <th>Email</th>
+                        <th>Website</th>
+                        <th>Jalan</th>
+                        <th>Dusun</th>
+                        <th>Rt/Rw</th>
+                        <th>Kelurahan</th>
+                        <th>Kode Pos</th>
+                        <th>ID Wilayah</th>
+                        <th>Bank</th>
+                        <th>Unit Cabang</th>
+                        <th>No Rek</th>
+                        <th>MBS</th>
+                        <th>Luas Tanah Milik</th>
+                        <th>Luas Tanah Bukan Milik</th>
+                        <th>SK Pendirian</th>
+                        <th>Tgl SK Pendirian</th>
+                        <th>ID Status Milik</th>
+                        <th>Status Perguruan Tinggi</th>
+                        <th>SK Izin Operasional</th>
+                        <th>Tgl Izin Operasional</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat = "item in datas">
                         <th>{{$index+1}}</th>
-                        <th>{{item.nama_tahun_akademik}}</th>
-                        <th>{{item.semester == "1" ? "Ganjil" : item.semester == "2" ? "Genap" : "Pendek"}}</th>
-                        <th>{{item.tanggal_mulai}}</th>
-                        <th>{{item.tanggal_selesai}}</th>
+                        <th>{{item.kode_perguruan_tinggi}}</th>
+                        <th>{{item.nama_perguruan_tinggi}}</th>
+                        <th>{{item.telepon}}</th>
+                        <th>{{item.faximile}}</th>
+                        <th>{{item.email}}</th>
+                        <th>{{item.website}}</th>
+                        <th>{{item.jalan}}</th>
+                        <th>{{item.dusun}}</th>
+                        <th>{{item.rt_rw}}</th>
+                        <th>{{item.kelurahan}}</th>
+                        <th>{{item.kode_pos}}</th>
+                        <th>{{item.id_wilayah}}</th>
+                        <th>{{item.bank}}</th>
+                        <th>{{item.unit_cabang}}</th>
+                        <th>{{item.nomor_rekening}}</th>
+                        <th>{{item.mbs}}</th>
+                        <th>{{item.luas_tanah_milik}}</th>
+                        <th>{{item.luas_tanah_bukan_milik}}</th>
+                        <th>{{item.sk_pendirian}}</th>
+                        <th>{{item.tanggal_sk_pendirian}}</th>
+                        <th>{{item.id_status_milik}}</th>
+                        <th>{{item.status_perguruan_tinggi}}</th>
+                        <th>{{item.sk_izin_operasional}}</th>
+                        <th>{{item.tanggal_izin_operasional}}</th>
                         <th>
                             <button type="button" class="btn btn-warning btn-sm" ng-click="edit(item)"><i class="fa fa-edit"></i></button>
                             <button type="button" class="btn btn-danger btn-sm" ng-click="delete(item)"><i class="fa fa-trash"></i></button>

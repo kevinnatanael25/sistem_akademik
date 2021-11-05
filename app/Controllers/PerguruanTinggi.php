@@ -18,7 +18,9 @@ class PerguruanTinggi extends ResourceController
 
     public function index()
     {
-        
+        $data['sidebar'] = view("layout/sidebar");
+        $data['content'] = view("perguruan_tinggi");
+        return view('layout/layout', $data);
     }
     public function read()
     {

@@ -1,7 +1,7 @@
-<div ng-controller="tahunAkademikController">
+<div ng-controller="krsController">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">List Tahun Akademik</h3>
+            <h3 class="card-title">KRS</h3>
             <div class="card-tools">
                 <!-- Button trigger modal -->
                 <!-- Button trigger modal -->
@@ -15,20 +15,18 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Tahun Ajaran</th>
-                        <th>Semester</th>
-                        <th>Tanggal Mulai</th>
-                        <th>Tanggal Selesai</th>
+                        <th>Mahasiswa</th>
+                        <th>Jadwal</th>
+                        <th>Program Studi</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat = "item in datas">
                         <th>{{$index+1}}</th>
-                        <th>{{item.nama_tahun_akademik}}</th>
-                        <th>{{item.semester == "1" ? "Ganjil" : item.semester == "2" ? "Genap" : "Pendek"}}</th>
-                        <th>{{item.tanggal_mulai}}</th>
-                        <th>{{item.tanggal_selesai}}</th>
+                        <th>{{item.mahasiswa_id}}</th>
+                        <th>{{item.jadwal_id}}</th>
+                        <th>{{item.program_studi_id}}</th>
                         <th>
                             <button type="button" class="btn btn-warning btn-sm" ng-click="edit(item)"><i class="fa fa-edit"></i></button>
                             <button type="button" class="btn btn-danger btn-sm" ng-click="delete(item)"><i class="fa fa-trash"></i></button>
@@ -50,24 +48,20 @@
                             <div class="modal-body">
                                 <form action="">
                                     <div class="form-group">
-                                      <label for="">Tahun Akademik</label>
-                                      <input type="text" name="" id="" class="form-control" ng-model="model.nama_tahun_akademik" placeholder="" aria-describedby="helpId">
+                                      <label for="">Jadwal</label>
+                                      <input type="text" name="" id="" class="form-control" ng-model="model.jadwal_id" placeholder="" aria-describedby="helpId">
                                     </div>
                                     <div class="form-group">
-                                      <label for="">Semester</label>
-                                      <select name="" id="" class="form-control" ng-model="model.semester">
+                                      <label for="">Mahasiswa</label>
+                                      <select name="" id="" class="form-control" ng-model="model.mahasiswa_id">
                                           <option value="1">Ganjil</option>
                                           <option value="2">Genap</option>
                                           <option value="3">Pendek</option>
                                       </select>
                                     </div>
                                     <div class="form-group">
-                                      <label for="">Tanggal Mulai</label>
-                                      <input type="date" name="" id="" class="form-control" ng-model="model.tanggal_mulai" placeholder="" aria-describedby="helpId">
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="">Tanggal Selesai</label>
-                                      <input type="date" name="" id="" class="form-control" ng-model="model.tanggal_selesai" placeholder="" aria-describedby="helpId">
+                                      <label for="">Program Studi</label>
+                                      <input type="date" name="" id="" class="form-control" ng-model="model.program_studi_id" placeholder="" aria-describedby="helpId">
                                     </div>
                                 </form>
                             </div>

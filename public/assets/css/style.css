@@ -10984,20 +10984,20 @@ fieldset:disabled .ajax-upload-dragdrop a.ajax-file-upload,
 
 .btn-primary {
   color: #fff;
-  background-color: #ec37fc;
-  border-color: #ec37fc;
+  background-color: #800000;
+  border-color: #800000;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #e811fb;
-  border-color: #e705fb;
+  background-color: #800000;
+  border-color: #800000;
 }
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #e811fb;
-  border-color: #e705fb;
+  background-color: #800000;
+  border-color: #800000;
   box-shadow: 0 0 0 0.2rem rgba(239, 85, 252, 0.5);
 }
 
@@ -21753,7 +21753,7 @@ dl li {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 60px);
-  background: #ec37fc;
+  background: #790c0cda;
   font-family: "Karla", sans-serif;
   font-weight: normal;
   padding: 0;
@@ -22045,7 +22045,7 @@ dl li {
 }
 
 .navbar .navbar-brand-wrapper {
-  background: #ec37fc;
+  background: #770404d7;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
