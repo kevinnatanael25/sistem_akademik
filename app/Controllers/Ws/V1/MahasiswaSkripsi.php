@@ -7,13 +7,15 @@ use CodeIgniter\RESTful\ResourceController;
 
 class MahasiswaSkripsi extends ResourceController
 {
-    protected $modelName = "App\Models\BiodataMahasiswaModel";
+    protected $modelName = "App\Models\MahasiswaModel";
     protected $format = "json";
     protected $session;
     protected $rest;
     protected $encrypter;
     protected $user;
     protected $userrole;
+    protected $biodata;
+    protected $prodi;
 
     public function __construct()
     {
@@ -22,6 +24,8 @@ class MahasiswaSkripsi extends ResourceController
         $this->encrypter = \Config\Services::encrypter();
         $this->user = new \App\Models\UserModel();
         $this->userrole = new \App\Models\UserRoleModel();
+        $this->biodata = new \App\Models\BiodataMahasiswaModel();
+        $this->prodi = new \App\Models\ProdiModel();
     }
 
     public function read()
@@ -35,31 +39,23 @@ class MahasiswaSkripsi extends ResourceController
     public function add()
     {
         $mahasiswa = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), "nama_status_mahasiswa = 'Aktif'", '');
-        $item = $this->rest->callRest("GetBiodataMahasiswa", $this->session->get('token'), "", '');
+        $item = $this->biodata->get()->getResultObject();
+        $prodis = $this->prodi->get()->getResultObject();
         $result = [];
         foreach ($mahasiswa->data as $key => $ma) {
-            foreach ($item->data as $key => $value) {
-                if ($ma->id_mahasiswa == $value->id_mahasiswa) {
-                    $user = [
-                        'username' => $ma->nim,
-                        'password' => md5('stimik1011'),
-                        'email' => $value->email == null ? $ma->nim . "@stimiksepnop.ac.id" : $ma->nim,
-                    ];
-                    $this->user->insert($user);
-                    $user['id'] = $this->user->getInsertID();
-                    $role = [
-                        'user_id' => $user['id'],
-                        'role_id' => 2,
-                    ];
-                    $this->userrole->insert($role);
-                    $value->users_id = $user['id'];
-
-                    $this->model->insert($value);
-                    array_push($result, $value);
+            foreach ($item as $key => $value) {
+                foreach ($prodis as $key => $prodi) {
+                    if ($ma->id_mahasiswa == $value->id_mahasiswa && $prodi->id_prodi==$ma->id_prodi) {
+                        $ma->biodata_mahasiswa_id = $value->id;
+                        $ma->program_studi_id = $prodi->id;
+                        array_push($result, $ma);
+                    }
                 }
             }
         }
-        return $this->respond($result);
+        // $this->model->insertBatch($result);
+
+        return $this->respond($this->model->insertBatch($result));
     }
 
     public function pass()
