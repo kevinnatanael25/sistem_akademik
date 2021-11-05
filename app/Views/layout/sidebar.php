@@ -36,26 +36,25 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="<?=base_url('evaluasi_pembelajaran')?>">
                 <i class="icon-check menu-icon"></i>
                 <span class="menu-title">Evaluasi Pembelajaran</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="<?=base_url('biodata_mahasiswa')?>">
                 <i class="icon-pie-graph menu-icon"></i>
                 <span class="menu-title">Biodata Mahasiswa</span>
-                <i class="menu-arrow"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-                <i class="icon-command menu-icon">Dosen Pengampuh</i>
+            <a class="nav-link" href="<?=base_url('perguruan_tinggi')?>">
+                <i class="icon-command menu-icon">Perguruan Tinggi</i>
                 <span class="menu-title"></span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/feather-icons.html">
+            <a class="nav-link" href="<?=base_url('program_studi')?>">
                 <i class="icon-help menu-icon"></i>
                 <span class="menu-title">Program Studi</span>
             </a>
@@ -68,30 +67,30 @@
             </a>
             <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Dosen Pengampuh </a>
+                    <li class="nav-item"> <a class="nav-link" href="<?=base_url('dosen_pengampuh')?>"> Dosen Pengampuh </a>
                     </li>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="docs/documentation.html">
+            <a class="nav-link" href="<?=base_url('transkip_nilai')?>">
                 <i class="icon-book menu-icon"></i>
                 <span class="menu-title">Transkrip Nilai</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="docs/documentation.html">
+            <a class="nav-link" href="<?=base_url('role')?>">
                 <i class="icon-book menu-icon"></i>
                 <span class="menu-title">Role</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="docs/documentation.html">
+            <a class="nav-link" href="<?=base_url('jadwal')?>">
                 <i class="icon-book menu-icon"></i>
                 <span class="menu-title">Jadwal</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="docs/documentation.html">
+            <a class="nav-link" href="<?=base_url('user')?>">
                 <i class="icon-book menu-icon"></i>
                 <span class="menu-title">User</span>
             </a>
