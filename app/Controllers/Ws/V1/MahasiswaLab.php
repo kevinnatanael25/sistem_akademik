@@ -25,7 +25,6 @@ class MahasiswaLab extends ResourceController
     }
     public function add()
     {
-        
         $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), "nama_status_mahasiswa = 'Aktif'", '');
 
         $result = $this->model->insertBatch($item->data);

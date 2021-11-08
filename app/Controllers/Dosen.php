@@ -10,6 +10,12 @@ class Dosen extends ResourceController
 {
     protected $modelName = "App\Models\DosenModel";
     protected $format = "json";
+    protected $rest;
+    protected $session;
+    public function __construct() {
+        $this->rest = new Rest();
+        $this->session = session();
+    }
 
     public function read()
     {
@@ -19,10 +25,20 @@ class Dosen extends ResourceController
     
     public function post()
     {
-        $data = $this->request->getJSON();
-        $this->model->insert($data);
-        $data->id=$this->model->getInsertID();
-        return $this->respond($data);
+        try {
+            $data = $this->request->getJSON();
+            // $pt = $rest->callRest('GetProfilPT',$this->session->get('token'), '', '');
+            // $data->
+            $this->model->insert($data);
+            $data->id= $this->model->getInsertID();
+            return $this->respond($data);
+        } catch (\Throwable $th) {
+            return $this->respond($th->getMessage());
+        }
+        // $data = $this->request->getJSON();
+        // $this->model->insert($data);
+        // $data->id=$this->model->getInsertID();
+        // return $this->respond($data);
     }
     public function put($id = null)
     {

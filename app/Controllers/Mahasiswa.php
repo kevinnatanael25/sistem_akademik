@@ -13,8 +13,8 @@ class Mahasiswa extends ResourceController
     {
         // $item = $this->rest->callRest("GetListMahasiswa", $this->session->get('token'), "nama_status_mahasiswa = 'Aktif'", '');
         // $result['mahasiswa'] = $item->data;
-        $data['sidebar'] = view("layout/sidebar");
-        $data['content'] = view("mahasiswa");
+        $data['sidebar'] = view("layout/admin/sidebar");
+        $data['content'] = view("layout/admin/mahasiswa");
         return view('layout/layout', $data);
     }
 

@@ -33,6 +33,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/mahasiswa', 'Mahasiswa::index', ['filter' => 'login']);
+$routes->post('/dosen', 'Dosen::post', ['filter' => 'login']);
+$routes->post('/matakuliah', 'matakuliah::post', ['filter' => 'login']);
+$routes->get('/perguruantinggi', 'PerguruanTinggi::index', ['filter' => 'login']);
 $routes->get('/matakuliah', 'Matakuliah::index', ['filter' => 'login']);
 
 $routes->post('api/v1/authentication', 'Ws/V1/Auth::login', ['filter' => 'login']);//login Mahasiswa Skripsi

@@ -7,6 +7,8 @@ use App\Libraries\Rest;
 
 class Matakuliah extends ResourceController
 {
+    protected $modelName = "App\Models\DosenModel";
+    protected $format = "json";
     protected $rest;
     protected $session;
     public function __construct() {
@@ -20,5 +22,12 @@ class Matakuliah extends ResourceController
         $data['sidebar'] = view("layout/sidebar");
         $data['content'] = view("matakuliah", $result);
         return view('layout/sidebar', $data);
+    }
+    public function post()
+    {
+        $data = $this->request->getJSON();
+        $this->model->insert($data);
+        $data->id=$this->model->getInsertID();
+        return $this->respond($data);
     }
 }

@@ -14,7 +14,10 @@ class MataKuliah extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = [];
+    protected $allowedFields        = ['id','id_prodi','kode_mata_kuliah','nama_mata_kuliah','id_jenis_mata_kuliah','id_kelompok_mata_kuliah',
+                                        'sks_mata_kuliah','sks_tatap_muka','sks_praktek','sks_praktek_lapangan','sks_simulasi',
+                                        'metode_kuliah','ada_sap', 'ada_silabus','ada_bahan_ajar','ada_acara_praktek','ada_diktat',
+                                        'tangga;_mulai_efektif','tanggal_akhir_efektif','dosen_pengampuh_id'];
 
     // Dates
     protected $useTimestamps        = false;

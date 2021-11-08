@@ -36,21 +36,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<?=base_url('evaluasi_pembelajaran')?>">
-                <i class="icon-check menu-icon"></i>
-                <span class="menu-title">Evaluasi Pembelajaran</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?=base_url('biodata_mahasiswa')?>">
-                <i class="icon-pie-graph menu-icon"></i>
-                <span class="menu-title">Biodata Mahasiswa</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?=base_url('perguruan_tinggi')?>">
-                <i class="icon-command menu-icon">Perguruan Tinggi</i>
-                <span class="menu-title"></span>
+            <a class="nav-link" href="<?=base_url('perguruantinggi')?>">
+                <i class="icon-command menu-icon"></i>
+                <span class="menu-title">Profile Perguruan Tinggi</span>
             </a>
         </li>
         <li class="nav-item">
@@ -63,26 +51,14 @@
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="icon-head menu-icon"></i>
                 <span class="menu-title">Dosen</span>
-                <i class="menu-arrow"></i>
+                <!-- <i class="menu-arrow"></i> -->
             </a>
-            <div class="collapse" id="auth">
+            <!-- <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="<?=base_url('dosen_pengampuh')?>"> Dosen Pengampuh </a>
                     </li>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?=base_url('transkip_nilai')?>">
-                <i class="icon-book menu-icon"></i>
-                <span class="menu-title">Transkrip Nilai</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?=base_url('role')?>">
-                <i class="icon-book menu-icon"></i>
-                <span class="menu-title">Role</span>
-            </a>
-        </li>
+            </div> -->
+        </li>        
         <li class="nav-item">
             <a class="nav-link" href="<?=base_url('jadwal')?>">
                 <i class="icon-book menu-icon"></i>

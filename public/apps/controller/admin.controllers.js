@@ -2,6 +2,7 @@ angular.module("admin.controllers", [])
 .controller("tahapanController", tahapanController)
 .controller("mahasiswaController", mahasiswaController)
 .controller("tahunAkademikController", tahunAkademikController)
+.controller("perguruanTinggiController", tahunAkademikController)
 ;
 
 function tahapanController($scope, tahapanServices) {
@@ -50,4 +51,11 @@ function tahunAkademikController($scope, tahunAkademikServices) {
         $scope.model.tanggal_selesai = new Date($scope.model.tanggal_selesai);
         $("#modelId").modal('show');
     }
+}
+function perguruanTinggiController($scope, perguruanTinggiServices) {
+    $scope.datas = [];
+    tahunAkademik.get().then(res=>{
+        $scope.datas = res;
+        console.log(res);
+    })
 }
