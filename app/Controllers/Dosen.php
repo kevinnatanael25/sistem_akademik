@@ -50,23 +50,30 @@ class Dosen extends ResourceController
     public function sync()
     {
         $dosens = $this->rest->callRest("GetListPenugasanDosen", $this->session->get('token'), "id_prodi IN ('22f051b3-30b4-403a-a14a-765f3608ed55', 'dd8677e5-5bc1-4f37-a270-f1d005b3037c')", '');
+        $prodis = $this->prodi->get()->getResultObject();
+
         $newDosen = [];
         foreach ($dosens->data as $dosen) {
             $newDosen[$dosen->nidn][] = $dosen;
         }
-        
+
         try {
             foreach ($newDosen as $dosen) {
-                $user = [
-                    'username' => $dosen[0]->nidn,
-                    'password' => md5("stimik1011"),
-                    'email' => $dosen[0]->nidn . "@stimiksepnop.ac.id",
-                ];
-                $this->user->insert($user);
-                $dosen[0]->user_id = $this->user->getInsertID();
-                $this->dosen->insert($dosen[0]);
+                foreach ($prodis as $key => $prodi) {
+                    if ($dosen[0]->id_prodi == $prodi->id_prodi) {
+                        $user = [
+                            'username' => $dosen[0]->nidn,
+                            'password' => md5("stimik1011"),
+                            'email' => $dosen[0]->nidn . "@stimiksepnop.ac.id",
+                        ];
+                        $this->user->insert($user);
+                        $dosen[0]->user_id = $this->user->getInsertID();
+                        $dosen[0]->program_studi_id = $prodi->id;
+                        $this->dosen->insert($dosen[0]);
+                    }
+                }
             }
-           
+
         } catch (\Throwable $th) {
             $this->fail($th->getMessage);
         }

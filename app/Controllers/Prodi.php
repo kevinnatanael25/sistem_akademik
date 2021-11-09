@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\RESTful\ResourceController;
 use App\Libraries\Rest;
+use CodeIgniter\RESTful\ResourceController;
 
 class Prodi extends ResourceController
 {
@@ -11,7 +11,8 @@ class Prodi extends ResourceController
     protected $format = "json";
     protected $rest;
     protected $session;
-    public function __construct() {
+    public function __construct()
+    {
         $this->rest = new Rest();
         $this->session = session();
     }
@@ -28,10 +29,11 @@ class Prodi extends ResourceController
     }
     public function post()
     {
-        $data = $this->request->getJSON();
-        $this->model->insert($data);
-        $data->id= $this->model->getInsertID();
-        return $this->respond($data);
+        $prodis = $this->rest->callRest("GetAllProdi", $this->session->get('token'), "id_perguruan_tinggi='14a2759a-ce83-48eb-85c9-db4f8de00f20' AND status='A'", '');
+        foreach ($prodis->data as $key => $value) {
+            $value->perguruan_tinggi_id = "1";
+            $result = $this->model->insert($value);
+        }
     }
     public function put($id = null)
     {
@@ -45,4 +47,3 @@ class Prodi extends ResourceController
         return $this->respond($result);
     }
 }
-
