@@ -33,7 +33,6 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/mahasiswa', 'Mahasiswa::index', ['filter' => 'login']);
-$routes->post('/dosen', 'Dosen::post', ['filter' => 'login']);
 $routes->get('/dosen', 'Dosen::sync', ['filter' => 'login']);
 $routes->post('/matakuliah', 'matakuliah::post', ['filter' => 'login']);
 $routes->get('/perguruantinggi', 'PerguruanTinggi::index', ['filter' => 'login']);
@@ -43,9 +42,9 @@ $routes->post('api/v1/authentication', 'Ws/V1/Auth::login', ['filter' => 'login'
 $routes->get('api/v1/check', 'Ws/V1/Auth::details', ['filter' => 'login']);
 $routes->get('api/v1/mahasiswa', 'Ws/V1/Mahasiswa::read', ['filter' => 'login']); //tampil mahasiswa
 $routes->get('api/v1/biodata', 'Ws/V1/Biodata::read', ['filter' => 'login']); //tampil mahasiswa
+$routes->get('api/v1/prodi', 'Ws/V1/Prodi::read', ['filter' => 'login']); //tampil mahasiswa
 $routes->get('api/v1/mahasiswaskripsi', 'Ws/V1/MahasiswaSkripsi::read', ['filter' => 'login']);
 $routes->get('api/v1/mahasiswaskripsii', 'Ws/V1/MahasiswaSkripsi::add', ['filter' => 'login']);
-$routes->get('api/v1/mahasiswalab', 'Ws/V1/MahasiswaLab::read', ['filter' => 'login']);
 $routes->get('api/v1/programstudi', 'Ws/V1/ProgramStudi::read', ['filter' => 'login']);
 $routes->get('api/v1/pass', 'Ws/V1/MahasiswaSkripsi::pass', ['filter' => 'login']);
 

@@ -20,7 +20,7 @@ class Mahasiswa extends ResourceController
 
     public function read()
     {
-        $data = $this->model->findAll();
+        $data = $this->model->limit(20)->find();
         return $this->respond($data);
     }
     public function post()

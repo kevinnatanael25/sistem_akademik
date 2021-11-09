@@ -75,7 +75,7 @@ class Dosen extends ResourceController
             }
 
         } catch (\Throwable $th) {
-            $this->fail($th->getMessage);
+            $this->fail($th->getMessage());
         }
         // $item = $this->biodata->get()->getResultObject();
         // $result = [];
