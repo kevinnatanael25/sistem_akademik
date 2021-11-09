@@ -29,10 +29,7 @@
                                     <td class="text-center">{{item.nim}}</td>
                                     <td class="text-center">{{item.nama_agama}}</td>
                                     <td class="text-center">{{item.jenis_kelamin}}</td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                            data-target="#modalEdit" ng-click="edit(item)"><i
-                                                class="fa fa-edit"></i></button>
+                                    <td class="text-center">                                       
                                         <button type="button" class="btn btn-success btn-sm"
                                             ng-click="detailMahasiswa(item)"><i class="fa fa-eye"></i></button>
                                     </td>
@@ -88,51 +85,87 @@
                 <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modalDetailLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="card-body">
-                                    <h1>Nama : {{model.nama_mahasiswa}}</h1>
+                        <div class="col-lg-12">
+                            <div class="text-center card card-box">
+                                <div class="member-card pt-2 pb-2">
+                                    <div class="thumb-lg member-thumb mx-auto"><img
+                                            src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                                            class="rounded-circle img-thumbnail" alt="profile-image">
+                                    </div>
+                                    <div class="">
+                                        <h4>{{model.nama_mahasiswa}}</h4>
+                                        <p class="text-muted">{{model.nim}}</p>
+                                        <p class="text-muted">{{model.nama_program_studi}}</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
                         </div>
+                        <!-- <div class="modal-content">
+                        </div> -->
                     </div>
                 </div>
                 <!-- akhir modal detail -->
 
                 <!-- modal edit -->
                 <!-- Modal -->
-                <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalEdit"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             <!-- akhir modal tambah data -->
+            <style>
+.card-box {
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    background-color: #fff;
+}
 
+.social-links li a {
+    border-radius: 50%;
+    color: rgba(121, 121, 121, .8);
+    display: inline-block;
+    height: 30px;
+    line-height: 27px;
+    border: 2px solid rgba(121, 121, 121, .5);
+    text-align: center;
+    width: 30px
+}
+
+.social-links li a:hover {
+    color: #797979;
+    border: 2px solid #797979
+}
+
+.thumb-lg {
+    height: 88px;
+    width: 88px;
+}
+
+.img-thumbnail {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+.text-pink {
+    color: #ff679b !important;
+}
+
+.btn-rounded {
+    border-radius: 2em;
+}
+
+.text-muted {
+    color: #98a6ad !important;
+}
+
+h4 {
+    line-height: 22px;
+    font-size: 18px;
+}
+            </style>
 
             <!-- modal detail -->
 
