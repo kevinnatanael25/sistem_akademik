@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\RESTful\ResourceController;
 use App\Libraries\Rest;
+use CodeIgniter\RESTful\ResourceController;
 
 class Dosen extends ResourceController
 {
@@ -14,16 +14,17 @@ class Dosen extends ResourceController
     protected $encrypter;
     protected $user;
     protected $userrole;
-    protected $dosen;    
+    protected $dosen;
     protected $prodi;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->rest = new Rest();
-        $this->session = session();        
+        $this->session = session();
         $this->encrypter = \Config\Services::encrypter();
         $this->user = new \App\Models\UserModel();
         $this->userrole = new \App\Models\UserRoleModel();
-        $this->biodata = new \App\Models\DosenModel();        
+        $this->dosen = new \App\Models\DosenModel();
         $this->prodi = new \App\Models\ProdiModel();
     }
 
@@ -32,7 +33,7 @@ class Dosen extends ResourceController
         $data = $this->model->findAll();
         return $this->respond($data);
     }
-    
+
     public function post()
     {
         try {
@@ -40,17 +41,36 @@ class Dosen extends ResourceController
             // $pt = $rest->callRest('GetProfilPT',$this->session->get('token'), '', '');
             // $data->
             $this->model->insert($data);
-            $data->id= $this->model->getInsertID();
+            $data->id = $this->model->getInsertID();
             return $this->respond($data);
-        } catch (\Throwable $th) {
+        } catch (\Throwable$th) {
             return $this->respond($th->getMessage());
         }
     }
-    public function add()
+    public function sync()
     {
-        $dosen = $this->rest->callRest("GetListPenugasanDosen", $this->session->get('token'), '', '');
+        $dosens = $this->rest->callRest("GetListPenugasanDosen", $this->session->get('token'), "id_prodi IN ('22f051b3-30b4-403a-a14a-765f3608ed55', 'dd8677e5-5bc1-4f37-a270-f1d005b3037c')", '');
+        $newDosen = [];
+        foreach ($dosens->data as $dosen) {
+            $newDosen[$dosen->nidn][] = $dosen;
+        }
+        
+        try {
+            foreach ($newDosen as $dosen) {
+                $user = [
+                    'username' => $dosen[0]->nidn,
+                    'password' => md5("stimik1011"),
+                    'email' => $dosen[0]->nidn . "@stimiksepnop.ac.id",
+                ];
+                $this->user->insert($user);
+                $dosen[0]->user_id = $this->user->getInsertID();
+                $this->dosen->insert($dosen[0]);
+            }
+           
+        } catch (\Throwable $th) {
+            $this->fail($th->getMessage);
+        }
         // $item = $this->biodata->get()->getResultObject();
-        $prodis = $this->prodi->get()->getResultObject();
         // $result = [];
         // foreach ($dosen->data as $key => $ma) {
         //     foreach ($item as $key => $value) {

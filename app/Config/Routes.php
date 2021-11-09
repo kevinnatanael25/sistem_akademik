@@ -34,12 +34,12 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/mahasiswa', 'Mahasiswa::index', ['filter' => 'login']);
 $routes->post('/dosen', 'Dosen::post', ['filter' => 'login']);
-$routes->post('/dosen', 'Dosen::add', ['filter' => 'login']);
+$routes->get('/dosen', 'Dosen::sync', ['filter' => 'login']);
 $routes->post('/matakuliah', 'matakuliah::post', ['filter' => 'login']);
 $routes->get('/perguruantinggi', 'PerguruanTinggi::index', ['filter' => 'login']);
 $routes->get('/matakuliah', 'Matakuliah::index', ['filter' => 'login']);
 
-$routes->post('api/v1/authentication', 'Ws/V1/Auth::login', ['filter' => 'login']);//login Mahasiswa Skripsi
+$routes->post('api/v1/authentication', 'Ws/V1/Auth::login', ['filter' => 'login']); //login Mahasiswa Skripsi
 $routes->get('api/v1/check', 'Ws/V1/Auth::details', ['filter' => 'login']);
 $routes->get('api/v1/mahasiswa', 'Ws/V1/Mahasiswa::read', ['filter' => 'login']); //tampil mahasiswa
 $routes->get('api/v1/biodata', 'Ws/V1/Biodata::read', ['filter' => 'login']); //tampil mahasiswa
