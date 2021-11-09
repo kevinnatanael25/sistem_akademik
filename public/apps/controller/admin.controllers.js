@@ -13,11 +13,19 @@ function tahapanController($scope, tahapanServices) {
     })
 }
 function mahasiswaController($scope, mahasiswaServices) {
-    $scope.datas = [];
+    $scope.test = "Testing";
+    $scope.datas = [];  
+    $scope.model={};
     mahasiswaServices.get().then(res=>{
         $scope.datas = res;
         console.log(res);
     })
+
+    $scope.detailMahasiswa=(item)=>{
+        $scope.model=item;
+        console.log($scope.model);
+        $('#modalDetail').modal('show');
+    }
 }
 function tahunAkademikController($scope, tahunAkademikServices) {
     $scope.datas = [];
