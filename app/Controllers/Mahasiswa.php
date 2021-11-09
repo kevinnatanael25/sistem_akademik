@@ -41,4 +41,6 @@ class Mahasiswa extends ResourceController
         $result = $this->model->delete($id);
         return $this->respond($result);
     }
+    
+
 }

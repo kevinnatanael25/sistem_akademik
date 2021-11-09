@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/mahasiswa', 'Mahasiswa::index', ['filter' => 'login']);
 $routes->post('/dosen', 'Dosen::post', ['filter' => 'login']);
+$routes->post('/dosen', 'Dosen::add', ['filter' => 'login']);
 $routes->post('/matakuliah', 'matakuliah::post', ['filter' => 'login']);
 $routes->get('/perguruantinggi', 'PerguruanTinggi::index', ['filter' => 'login']);
 $routes->get('/matakuliah', 'Matakuliah::index', ['filter' => 'login']);
