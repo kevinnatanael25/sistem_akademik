@@ -16,7 +16,7 @@ class DosenModel extends Model
     protected $protectFields        = true;
     protected $allowedFields        = ['id','id_registrasi_dosen','id_dosen','nama_dosen','nidn','id_tahun_ajaran',
                                         'nama_tahun_ajaran','id_perguruan_tinggi','nama_perguruan_tinggi','nama_program_studi',
-                                        'program_studi_id','user_id'];
+                                        'program_studi_id','user_id','id_prodi'];
 
     // Dates
     protected $useTimestamps        = false;
